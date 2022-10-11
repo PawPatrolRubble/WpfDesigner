@@ -383,7 +383,7 @@ namespace ICSharpCode.WpfDesign.PropertyGrid
 			}
 
 			this.Properties = new ReadOnlyCollection<DesignItemProperty>(properties);
-
+			//this is used to determine what kind of editor to be used
 			if (Editor == null)
 				Editor = EditorManager.CreateEditor(FirstProperty);
 
