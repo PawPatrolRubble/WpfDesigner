@@ -9,6 +9,32 @@ using ICSharpCode.WpfDesign.PropertyGrid;
 
 namespace MyTestAssembly
 {
+
+	public class TestClass
+	{
+		public string Name { get; set; }
+		public string Description { get; set; }
+
+	}
+
+	public class CustomClassParseService : IComponentPropertyService
+	{
+		public IEnumerable<MemberDescriptor> GetAvailableEvents(DesignItem designItem)
+		{
+			throw new NotImplementedException();
+		}
+
+		public IEnumerable<MemberDescriptor> GetAvailableProperties(DesignItem designItem)
+		{
+			throw new NotImplementedException();
+		}
+
+		public IEnumerable<MemberDescriptor> GetCommonAvailableProperties(IEnumerable<DesignItem> designItems)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
 	public class MyComponentPropertyService : IComponentPropertyService
 	{
 		public IEnumerable<MemberDescriptor> GetAvailableEvents(DesignItem designItem)
@@ -22,7 +48,7 @@ namespace MyTestAssembly
 		{
 			IEnumerable<PropertyDescriptor> retVal = TypeHelper.GetAvailableProperties(designItem.Component);
 
-			retVal = retVal.Where(c => c.Name == "Foreground" || c.Name== "MyStringProperty");
+			retVal = retVal.Where(c => c.Name == "Foreground" || c.Name == "MyStringProperty");
 
 			return retVal;
 		}
